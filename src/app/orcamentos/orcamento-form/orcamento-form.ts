@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-orcamento-form.ts',
+  selector: 'app-orcamento-form',
   templateUrl: './orcamento-form.html',
   styleUrls: ['./orcamento-form.css']
 })

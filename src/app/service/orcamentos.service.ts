@@ -23,11 +23,11 @@ export class OrcamentoService {
     return this.http.put<Orcamento>(`${this.apiURL}/${orcamento.id}`, orcamento);
   }
 
- getClientes() : Observable<Orcamento[]> {
+ getOrcamento() : Observable<Orcamento[]> {
   return this.http.get<Orcamento[]>(`${this.apiURL}/obterTodos`);
  } 
 
- getClienteById(id: number) : Observable<Orcamento> {
+ getOrcamentoById(id: number) : Observable<Orcamento> {
   return this.http.get<any>(`${this.apiURL}/acharPorID/${id}`);
  }
 
