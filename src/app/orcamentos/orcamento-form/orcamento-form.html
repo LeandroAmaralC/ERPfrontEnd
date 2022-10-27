@@ -1,1 +1,110 @@
-<p>orcamento-form.ts works!</p>
+<h1 class="mt-4">Orcamentos</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">
+    {{ orcamento.id ? 'Edição' : 'Cadastro'}}
+  </li>
+</ol>
+
+<div class="container">
+  <div ng class="row">
+    <div class="col-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="success  == true">
+        Orcamento salvo/atualizado com sucesso!
+      </div>
+      <div *ngIf="!success">
+        <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+          {{ erro }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-5">
+      <div class="form-group">
+        <label>CPF: *</label>
+        <input type="text" class="form-control" value={{cliente.cpf}} [(ngModel)]="cliente.cpf" name="cpf" />
+      </div>
+    </div>
+
+    <div class="col-md-1 mt-4">
+      <button class="btn btn-success" (click)="buscarPorCPF()">
+        <i class="fa fa-edit"></i>
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Nome: *</label>
+        <input disabled type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" *ngIf="orcamento.id">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>ID:</label>
+        <input type="text" [ngModel]="orcamento.id" name="id" class="form-control" disabled="true" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <label>Codigo item: *</label>
+        <input type="text" class="form-control" [(ngModel)]="orcamento.descricao" name="nome" />
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="form-group">
+        <label>Descrição: </label>
+        <input disabled type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome" />
+      </div>
+    </div>
+
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label> Valor Unitario:</label>
+        <input disabled type="text" class="form-control" [(ngModel)]="orcamento.quantidade" name="cpf" />
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label> Quantidade:*</label>
+        <input  type="text" class="form-control" [(ngModel)]="orcamento.quantidade" name="cpf" />
+      </div>
+    </div>
+
+
+
+    <div class="col-md-1 mt-4 ">
+      <button class="btn btn-success" (click)="buscarPorCPF()">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-success" *ngIf="!orcamento.id">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+
+        <button type="submit" class="btn btn-primary" *ngIf="orcamento.id">
+          <i class="fa fa-sync-alt"></i> Atualizar
+        </button>
+
+        <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+          <i class="fa fa-reply"></i> Voltar
+        </button>
+      </div>
+    </div>
+
+  

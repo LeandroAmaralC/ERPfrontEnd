@@ -19,7 +19,11 @@ export class ClientesService {
  }
 
     getClienteByID(id: number) : Observable<Cliente> {
-        return this.http.get<any>(`${this.apiURL}/acharID/${id}`);
+        return this.http.get<any>(`${this.apiURL}/acharPorID/${id}`);
+    }
+
+    getClienteByCPF(cpf: string) : Observable<Cliente> {
+        return this.http.get<any>(`${this.apiURL}/acharPorCPF/${cpf}`);
     }
 
     atualizar( cliente: Cliente ) : Observable<any> {
