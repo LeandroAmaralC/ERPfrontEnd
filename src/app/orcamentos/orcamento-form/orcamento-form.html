@@ -56,35 +56,41 @@
     <div class="col-md-2">
       <div class="form-group">
         <label>Codigo item: *</label>
-        <input type="text" class="form-control" [(ngModel)]="orcamento.descricao" name="nome" />
+        <input type="text" class="form-control" [(ngModel)]="orcamento.id" name="id" />
       </div>
     </div>
+    
+    <div class="col-md-1 mt-4">
+      <button class="btn btn-success" (click)="buscarProdutoID()">
+        <i class="fa fa-edit"></i>
+      </button>
+    </div>
 
-    <div class="col-md-5">
+    <div class="col-md-4 mt-1" >
       <div class="form-group">
         <label>Descrição: </label>
-        <input disabled type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome" />
+        <input disabled type="text" class="form-control" [(ngModel)]="orcamento.descricao" name="descricao" />
       </div>
     </div>
 
 
-    <div class="col-md-2">
+    <div class="col-md-2 mt-1" >
       <div class="form-group">
         <label> Valor Unitario:</label>
-        <input disabled type="text" class="form-control" [(ngModel)]="orcamento.quantidade" name="cpf" />
+        <input disabled type="text" class="form-control" [(ngModel)]="orcamento.preco" name="preco" />
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-2 mt-1">
       <div class="form-group">
         <label> Quantidade:*</label>
-        <input  type="text" class="form-control" [(ngModel)]="orcamento.quantidade" name="cpf" />
+        <input  type="text" class="form-control" [(ngModel)]="orcamento.quantidade" name="quantidade" />
       </div>
     </div>
 
 
 
-    <div class="col-md-1 mt-4 ">
+    <div class="col-md-1 mt-4 mt-1">
       <button class="btn btn-success" (click)="buscarPorCPF()">
         <i class="fa fa-search"></i>
       </button>

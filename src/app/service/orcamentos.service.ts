@@ -10,7 +10,7 @@ import { environment } from '../.././environments/environment'
 })
 export class OrcamentoService {
 
-  apiURL: string = environment.apiURLBase + '/api/orcamentos';
+  apiURL: string = environment.apiURLBase + '/api/orcamento';
 
   constructor(private http: HttpClient) { }
 
