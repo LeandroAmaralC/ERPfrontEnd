@@ -10,7 +10,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { OrcamentoModule } from './orcamentos/orcamentos.module';
 import { ClientesService} from './service/clientes.service'
 import { OrcamentoService} from './service/orcamentos.service';
-import { ClientesModule } from './clientes/clientes.module'
+import { ClientesModule } from './clientes/clientes.module';
+import { ProdutoModule } from './produto/produto.module';
 
 
 
@@ -30,7 +31,9 @@ import { ClientesModule } from './clientes/clientes.module'
     AppRoutingModule,
     TemplateModule,
     OrcamentoModule,
-    ClientesModule
+    ClientesModule,
+    ProdutoModule
+    
  
   ],
   providers: [
