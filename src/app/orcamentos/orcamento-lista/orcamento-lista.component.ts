@@ -41,8 +41,13 @@ prepararDelecao(orcamento: Orcamento){
     this.service
     .deletar(this.orcamentoSelecionado)
     .subscribe(
-      response => this.mensagemSucesso = 'Orcamento deletado com Sucesso!',
-      erro => this.mensagemErro = 'Ocorreu um erro ao deletar o Orcamento!'
+      (response) => {
+        (this.mensagemSucesso = 'Orcamento deletado com Sucesso!'),
+      this.service
+    .getOrcamento()
+    .subscribe ( (resposta) => (this.listaOrcamentos = resposta) );
+      },
+      (erro) => (this.mensagemErro = 'Ocorreu um erro ao deletar o Orcamento!')
     )
 
     }

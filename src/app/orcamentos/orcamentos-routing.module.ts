@@ -6,6 +6,7 @@ import { OrcamentoListaComponent } from './orcamento-lista/orcamento-lista.compo
 const routes: Routes = [
 
   { path: 'orcamento', component: OrcamentoForm },
+  { path: 'orcamento/:id', component: OrcamentoForm },
   { path: 'orcamento-lista', component: OrcamentoListaComponent }
 
 ];
