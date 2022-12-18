@@ -14,6 +14,7 @@ export class ProdutoComponent implements OnInit {
   success: boolean = false;
   errors: String[];
   id: number;
+  idAnterior: number; 
 
   constructor(
      private service: ProdutoService,
@@ -30,6 +31,7 @@ export class ProdutoComponent implements OnInit {
       if (x && x.id) {
         this.service.getProdutoById(x.id).subscribe(response => {
           this.produto = response;
+          this.idAnterior = response.id;
         });
       }
     });
@@ -37,6 +39,19 @@ export class ProdutoComponent implements OnInit {
 
   voltarParaListagem() {
     this.router.navigate(['produto-lista'])
+  }
+
+  atualizar() {
+    this.service
+    .atualizar(this.idAnterior, this.produto)
+    .subscribe(response => {
+      this.success = true;
+      this.errors.push('');
+      this.produto = response;
+    }, errorResponse => {
+      this.success = false;
+      this.errors = errorResponse.error.errors;
+    })
   }
 
   onSubmit() {
@@ -54,4 +69,6 @@ export class ProdutoComponent implements OnInit {
            })
     
   }
+
+
 }
