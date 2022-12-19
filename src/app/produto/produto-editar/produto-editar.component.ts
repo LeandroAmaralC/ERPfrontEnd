@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Produto } from 'src/app/model/produto';
 import { ProdutoService } from 'src/app/service/produto.service';
-import { Produto } from '../../model/produto';
-
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.css']
+  selector: 'app-produto-editar',
+  templateUrl: './produto-editar.component.html',
+  styleUrls: ['./produto-editar.component.css']
 })
-export class ProdutoComponent implements OnInit {
-  produto: Produto;
+export class ProdutoEditarComponent implements OnInit {
+
+  produto:Produto;
   success: boolean = false;
   errors: String[];
   id: number;
@@ -26,6 +26,7 @@ export class ProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(x => {
 
       if (x && x.id) {
@@ -36,13 +37,13 @@ export class ProdutoComponent implements OnInit {
     });
   }
 
-  voltarParaListagem() {
+  voltarListagem() {
     this.router.navigate(['produto-lista'])
   }
 
   atualizar() {
     this.service
-    .atualizar( this.produto)
+    .atualizar(this.produto)
     .subscribe(response => {
       this.success = true;
       this.errors.push('');
@@ -56,18 +57,18 @@ export class ProdutoComponent implements OnInit {
   onSubmit() {
 
 
-      this.service
-        .salvar(this.produto)
-        .subscribe(response => {
-          this.success = true;
-          this.errors.push('');
-          this.produto = response;
-        }, errorResponse => {
-          this.success = false;
-          this.errors = errorResponse.error.errors;
-           })
-    
-  }
+    this.service
+      .salvar(this.produto)
+      .subscribe(response => {
+        this.success = true;
+        this.errors.push('');
+        this.produto = response;
+      }, errorResponse => {
+        this.success = false;
+        this.errors = errorResponse.error.errors;
+         })
+  
+}
 
 
 }

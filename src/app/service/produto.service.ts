@@ -21,8 +21,8 @@ export class ProdutoService {
    }
   
 
-   atualizar(idAnterior: number, produto: Produto ) : Observable<any> {
-    return this.http.put<Produto>(`${this.apiURL}/${idAnterior}`, produto);
+   atualizar( produto: Produto ) : Observable<Produto> {
+    return this.http.put<Produto>(`${this.apiURL}/${produto.id}`,  produto);
   }
 
  getProduto() : Observable<Produto[]> {

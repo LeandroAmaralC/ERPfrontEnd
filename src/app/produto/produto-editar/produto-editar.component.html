@@ -36,7 +36,7 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Codigo: *</label>
-                    <input type="text" class="form-control" [(ngModel)]="produto.id" name="produto" />
+                    <input disabled type="text" type="text" class="form-control" [(ngModel)]="produto.id" name="produto" />
                 </div>
             </div>
         
@@ -70,17 +70,18 @@
 
 
             <div class="col-md-3">
-                <button type="submit" class="btn btn-success" *ngIf="produto.id">
-                    <i class="fa fa-save"></i> Salvar
-                </button>
 
-                
 
-                <!-- <button type="button" class="btn btn-primary" (click)="atualizar()" *ngIf="produto.id">
+                 <!-- <button type="submit" class="btn btn-success" *ngIf="produto.id">
+                    <i class="fa fa-save"></i> Atualizar
+                </button> 
+                 -->
+
+                 <button type="button" class="btn btn-primary" (click)="atualizar()" *ngIf="produto.id">
                     <i class="fa fa-sync-alt"></i> Atualizar
-                </button> -->
+                </button> 
 
-                <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+                <button type="button" class="btn btn-danger ml-1" (click)="voltarListagem()">
                     <i class="fa fa-reply"></i> Voltar
                 </button>
             </div>
